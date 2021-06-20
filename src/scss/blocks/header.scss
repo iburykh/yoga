@@ -1,3 +1,134 @@
+.header {
+	min-height: 60px;
+	background-color: rgba(0,0,0,.7);
+	padding: 15px 0px 0px 0px;
+	&__container {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		@media (max-width: 768px) {
+			justify-content: space-between;
+		}
+	}
+
+	&__logo {
+		max-width: 90px;
+		color: $main-color;
+		text-transform: uppercase;
+		font-weight: 700;
+		display: flex;
+		align-items: center;
+		z-index: 2;
+		img {
+			max-width: 100%;
+			max-height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+.menu {
+	flex: 0 0 70%;
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 16px;
+		font-weight: 300;
+		@media (max-width: 768px) {
+			flex-direction: column;
+			justify-content: center;
+			padding: 80px 15px;
+		}
+	}
+	&__item {
+		&::after, &::before {
+			content:'';
+			height: 2px;
+			background-color: $main-color;
+			display: block;
+			margin: 0 auto;
+			transition: all 0.3s ease-in-out;
+			width: 0;
+		}
+		&::after {
+			content:'';
+			margin-top: 5px;
+		}
+		&::before {
+			content:'';
+			margin-bottom: 5px;
+		}
+		@media (min-width: 992px) {
+			&:hover {
+				&::after, &::before {
+					content:'';
+					width: 100%;
+				}
+			}
+		}
+		@media (max-width: 768px) {
+			font-size: 25px;
+			margin-bottom: 40px;
+			width: 100%;
+			text-align: center;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	&__link {
+		color: #fff;
+		@media (max-width: 768px) {
+			display: block;
+			width: 100%;
+			padding: 5px 0px;
+		}
+	}
+	@media (max-width: 768px) {
+		flex: 0 0;
+		position: fixed;
+		top: 0;
+		left: -100%;
+		width: 80%;
+		height: 100vh;
+		overflow: auto;
+		background-color: rgba(0,0,0, .6);
+		transition: 0.6s all;
+		&.active {
+			left: 0;
+		}
+	}
+}
+.hamburger {
+	display: none;
+	@media (max-width: 768px) {
+		display: block;
+		width: 26px;
+		height: 12px;
+		span {
+			display: block;
+			height: 2px;
+			width: 100%;
+			background-color: $main-color;
+			margin-bottom: 5px;
+			transition: 0.5s all;
+		}
+		&.active {
+			span {
+				margin-bottom: -2px;
+				&:nth-child(1){
+					transform: translateY(3px) rotate(-45deg);
+				} 
+				&:nth-child(2) {
+					display: none;
+				} 
+				&:nth-child(3) {
+					transform: translateY(3px) rotate(45deg);
+				}   
+			}
+		}		
+	}
+}
 
 
 

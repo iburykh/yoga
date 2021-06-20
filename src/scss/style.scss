@@ -4,8 +4,6 @@
 @import 'base/normalize.scss';
 // @import '../../node_modules/swiper/swiper-bundle.css';
 
-$maxWidth: 1920;
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -13,9 +11,8 @@ $maxWidth: 1920;
 }
 
 body {
-    font-family: 'MuseoSansCyrl', sans-serif;
-    color: #000;
-    background-color: #fff;
+    font-family: 'RobotoSlab', sans-serif;
+    color: #fff;
 }
 
 ul, ol, li {
