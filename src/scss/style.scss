@@ -4,6 +4,9 @@
 @import 'base/normalize.scss';
 // @import '../../node_modules/swiper/swiper-bundle.css';
 
+$maxWidth: 1920;
+$maxWidthContainer: 1140;
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -24,7 +27,7 @@ a {
 }
 
 .container {
-    width: 1140px;
+    width: $maxWidthContainer + px;
     margin: 0 auto;
     // @media (max-width: 1440px) {
     //     max-width: 1280px;
@@ -45,3 +48,12 @@ a {
 }
 
 @import 'blocks/header.scss';
+@import 'blocks/promo.scss';
+
+//! Убрать !
+.about {
+    color: #000;
+    position: relative;
+    z-index: 2;
+    background-color: #0b1d26;
+}

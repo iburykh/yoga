@@ -1,0 +1,91 @@
+.promo {
+	min-height: 100vh;
+	position: relative;
+	padding-top: 60px;
+	&__body {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+}
+.banner {
+	position: absolute;
+	min-width: 57%;
+	min-height: 50%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+	border: 6px solid $main-color;
+	background-color: rgba(0,0,0,.6);
+	margin: 0 auto;
+	@include adaptiv-value("padding", 40, 20, 1);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	opacity: 0;
+	transition: all 4s ease 0s;
+	&.active {
+		opacity: 1;
+	}
+	&__title {
+		text-transform: uppercase;
+		@include adaptiv-font(52,26,1);
+		font-weight: 400;
+		margin: 0;
+		display: block;
+	}
+	&__descr {
+		color: $main-color;
+		text-transform: uppercase;
+		font-size: 22px;
+		@include adaptiv-font(22,20,1);
+		font-weight: 700;
+		margin-top: 35px;
+	}
+	@media (max-width: 1200px) {
+		top: 55%;
+		transform: translate(-50%, -55%);
+	}
+	@media (max-width: 768px) {
+		min-width: 80%;
+		min-height: 60%;
+		top: 56%;
+		transform: translate(-50%, -56%);
+	}
+}
+.img-parallax {
+	position: absolute;
+	width: 120%;
+	height: 120%;
+	top: -10%;
+	left: -10%;
+	z-index: 1;
+
+	&__item {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+	&__mountains, &__fog {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+	}
+	&__mountains {
+		background: url("../img/bg.jpg") top / cover no-repeat;
+		top: 0;
+	}
+	&__fog {
+		background: url("../../img/fog.png") left / cover no-repeat;
+		top: 0;
+		opacity: 0.3;
+		z-index: 2;
+	}
+}

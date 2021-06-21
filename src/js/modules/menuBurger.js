@@ -6,12 +6,14 @@ const menuBurger = () => {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         menuBody.classList.toggle('active');
+        document.body.style.overflow = 'hidden';
     });
 
     menuItem.forEach(item => {
         item.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             menuBody.classList.toggle('active');
+            document.body.style.overflow = '';
         })
     })
 
@@ -19,6 +21,7 @@ const menuBurger = () => {
 		if (!e.target.closest('.hamburger') && !e.target.closest('.menu')) {
 			menuBody.classList.remove('active');
             hamburger.classList.remove('active');
+            document.body.style.overflow = '';
 		}
 	});
 };
