@@ -29,31 +29,40 @@ a {
 .container {
     width: $maxWidthContainer + px;
     margin: 0 auto;
-    // @media (max-width: 1440px) {
-    //     max-width: 1280px;
-    // }
     @media (max-width: 1200px) {
         max-width: 960px;
     }
     @media (max-width: 992px) {
         max-width: 720px;
     }
+    // @media (max-width: 768px) {
+    //     max-width: 540px;
+    // }
     @media (max-width: 768px) {
-        max-width: 540px;
-    }
-    @media (max-width: 576px) {
         width: 100%;
-        padding: 0 10px;
+        padding: 0 15px;
     }
 }
+
+.content {
+    padding: 50px 0px 0px 0px;
+	width: 100%;
+	min-height:3200px;
+	background: url('../img/main_bg.jpg');
+    background-position: 50% 30%;
+    position: relative;
+    z-index: 2;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 3s;
+  }
+  @keyframes fade{
+    from {opacity: .1}
+    to {opacity: 1}
+  }
 
 @import 'blocks/header.scss';
 @import 'blocks/promo.scss';
-
-//! Убрать !
-.about {
-    color: #000;
-    position: relative;
-    z-index: 2;
-    background-color: #0b1d26;
-}
+@import 'blocks/info.scss';

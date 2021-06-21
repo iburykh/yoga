@@ -1,10 +1,10 @@
 .header {
 	min-height: 60px;
-	width: 100%;
 	background-color: rgba(0,0,0,.6);
 	padding: 15px 0px 0px 0px;
-	position: fixed;
-	z-index: 2;
+	position: relative;
+	// width: 100%;
+	z-index: 3;
 	&__container {
 		display: flex;
 		justify-content: space-around;
@@ -74,8 +74,8 @@
 			}
 		}
 		@media (max-width: 768px) {
-			font-size: 25px;
-			margin-bottom: 40px;
+			font-size: 23px;
+			margin-bottom: 30px;
 			width: 100%;
 			text-align: center;
 			&:last-child {
@@ -96,7 +96,7 @@
 		position: fixed;
 		top: 0;
 		left: -100%;
-		width: 80%;
+		width: 80vw;
 		height: 100vh;
 		overflow: auto;
 		background-color: $bg-color;

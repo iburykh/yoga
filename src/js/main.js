@@ -4,6 +4,7 @@ import menuBurger from './modules/menuBurger';
 // import slider from './modules/slider';
 import mouseparallax from './modules/mouseparallax';
 import animateItem from './modules/animateItem';
+import tabs from './modules/tabs';
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -12,6 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
     menuBurger();
     mouseparallax();
     animateItem();
+    tabs();
 
     
 });
