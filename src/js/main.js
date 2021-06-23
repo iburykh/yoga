@@ -5,15 +5,20 @@ import menuBurger from './modules/menuBurger';
 import mouseparallax from './modules/mouseparallax';
 import animateItem from './modules/animateItem';
 import tabs from './modules/tabs';
+import timer from './modules/timer';
+import slider from './modules/slider';
 
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
-    menuBurger();
+    menuBurger('.menu', '.menu__item', '.hamburger');
     mouseparallax();
     animateItem();
     tabs();
+    menuBurger('.info-header', '.info-header-tab', '.hamburger-info');
+    timer();
+    slider();
 
     
 });

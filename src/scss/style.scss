@@ -2,7 +2,7 @@
 @import 'base/mixins.scss';
 @import 'base/fonts.scss';
 @import 'base/normalize.scss';
-// @import '../../node_modules/swiper/swiper-bundle.css';
+@import '../../node_modules/swiper/swiper-bundle.css';
 
 $maxWidth: 1920;
 $maxWidthContainer: 1140;
@@ -29,6 +29,7 @@ a {
 .container {
     width: $maxWidthContainer + px;
     margin: 0 auto;
+    padding: 0px 15px 0px 15px;
     @media (max-width: 1200px) {
         max-width: 960px;
     }
@@ -63,6 +64,27 @@ a {
     to {opacity: 1}
   }
 
+.more {
+    display: block;
+    margin: 0 auto;
+    margin-top: 60px;
+    width: 250px;
+    height: 60px;
+    background-color: transparent;
+    border: 1px solid $main-color;
+    font-size: 18px;
+    color: $main-color;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    @media (min-width: 992px) {
+        &:hover {
+            box-shadow: 0 0 10px $main-color;
+        }
+    }
+}
+
 @import 'blocks/header.scss';
 @import 'blocks/promo.scss';
 @import 'blocks/info.scss';
+@import 'blocks/timer.scss';
+@import 'blocks/slider.scss';
