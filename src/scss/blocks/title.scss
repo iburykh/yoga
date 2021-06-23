@@ -1,0 +1,21 @@
+.title {
+	font-size: 32px;
+	color: $main-color;
+	&:after {
+		content: '';
+		display: block;
+		width: 10%;
+		height: 1px;
+		background-color: $main-color;
+		margin-top: 4px;
+	}
+	@media (max-width: 768px) {
+		font-size: 25px;
+		text-align: center;
+		&::after {
+			content:'';
+			margin: 5px auto 0px auto;
+			width: 20%;
+		}
+	}
+}

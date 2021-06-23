@@ -66,10 +66,8 @@ a {
 
 .more {
     display: block;
-    margin: 0 auto;
-    margin-top: 60px;
-    width: 250px;
-    height: 60px;
+    margin: 60px auto 0px auto;
+    padding: 15px 40px;
     background-color: transparent;
     border: 1px solid $main-color;
     font-size: 18px;
@@ -88,3 +86,5 @@ a {
 @import 'blocks/info.scss';
 @import 'blocks/timer.scss';
 @import 'blocks/slider.scss';
+@import 'blocks/title.scss';
+@import 'blocks/counter.scss';
