@@ -6,6 +6,9 @@ import tabs from './modules/tabs';
 import timer from './modules/timer';
 import slider from './modules/slider';
 import calc from './modules/calc';
+import form from './modules/form';
+import mask from './modules/maskTelNumber';
+import modals from './modules/popup';
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -18,6 +21,9 @@ window.addEventListener('DOMContentLoaded', () => {
     timer();
     slider();
     calc();
+    form();
+    mask();
+    modals();
 
     
 });

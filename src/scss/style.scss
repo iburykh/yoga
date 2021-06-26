@@ -33,23 +33,23 @@ a {
     @media (max-width: 1200px) {
         max-width: 960px;
     }
-    @media (max-width: 992px) {
-        max-width: 720px;
-    }
+    // @media (max-width: 992px) {
+    //     max-width: 720px;
+    // }
     // @media (max-width: 768px) {
     //     max-width: 540px;
     // }
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
         width: 100%;
         padding: 0 15px;
     }
 }
 
 .content {
-    padding: 50px 0px 70px 0px;
+    padding: 50px 0px 50px 0px;
 	width: 100%;
 	min-height:3200px;
-	background: url('../img/main_bg.jpg');
+	// background: url('../img/main_bg.jpg');
     background-position: 50% 30%;
     position: relative;
     z-index: 2;
@@ -57,7 +57,7 @@ a {
 
 .fade {
     animation-name: fade;
-    animation-duration: 3s;
+    animation-duration: 1s;
   }
   @keyframes fade{
     from {opacity: .1}
@@ -74,6 +74,17 @@ a {
     color: $main-color;
     cursor: pointer;
     transition: all 0.3s ease 0s;
+    &-menu {
+        margin: 0;
+        padding: 10px 10px;
+        border: 2px solid $main-color;
+        font-size: 16px;
+        font-weight: 400;
+        @media (max-width: 768px) {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    }
     @media (min-width: 992px) {
         &:hover {
             box-shadow: 0 0 10px $main-color;
@@ -90,3 +101,4 @@ a {
 @import 'blocks/counter.scss';
 @import 'blocks/contacts.scss';
 @import 'blocks/social.scss';
+@import 'blocks/popup.scss';
