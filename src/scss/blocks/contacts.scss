@@ -2,8 +2,8 @@
 	width: 86%;
 	display: flex;
 	flex-wrap: wrap;
-	background: url('../img/main_bg.jpg') center center/cover no-repeat;
 	margin: 0px auto;
+	background-color: $bg-color;
 	@include adaptiv-value("margin-top", 150, 60, 1);
 	box-shadow: 0px 0px 30px rgba(0,0,0, .8);
 	padding: 50px 15px;
@@ -46,7 +46,7 @@
 		form {
 			input {
 				display: block;
-				width: 60%;
+				width: 70%;
 				height: 40px;
 				margin-top: 30px;
 				background-color: transparent;
@@ -61,17 +61,19 @@
 				}
 				@media (max-width: 992px) {
 					margin: 30px auto 0px auto;
+					width: 50%;
 				}
 				@media (max-width: 768px) {
-					width: 70%;
+					width: 60%;
 				}
 				@media (max-width: 576px) {
 					width: 80%;
+					margin: 20px auto 0px auto;
 				}
 			}
 			.error {
-				border: 1px solid rgba(214, 12, 29, 0.6);
-				box-shadow: 0 0 8px #d60c1d99;
+				border: 1px solid rgba(214, 59, 12, 0.6);
+				box-shadow: 0 0 8px #d63b0c99;
 			}
 			.form-btn {
 				margin-top: 35px;
@@ -83,6 +85,9 @@
 				cursor: pointer;
 				&:hover{
 					box-shadow: 0 0 10px $main-color;
+				}
+				@media (max-width: 576px) {
+					margin-top: 20px;
 				}
 			}
 			.form-error {
@@ -96,8 +101,9 @@
 				}
 			}
 			.sendmess {
+				display: block;
 				color: #fff;
-				margin-top: 15px;
+				margin-top: 20px;
 			}
 		}
 		@media (max-width: 992px) {
@@ -105,5 +111,8 @@
 			text-align: center;
 			padding: 0;
 		}
+	}
+	@media (max-width: 576px) {
+		padding: 35px 15px;
 	}
 }

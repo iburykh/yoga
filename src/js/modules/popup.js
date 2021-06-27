@@ -4,6 +4,7 @@ const modals = () => {
               modal = document.querySelector(modalSelector),
               close = document.querySelector(closeSelector),
               windows = document.querySelectorAll('[data-modal]'),
+              fixScroll = document.querySelectorAll('.lock'),
               scroll = calcScroll();
 
             trigger.forEach(function(item) {
@@ -13,34 +14,49 @@ const modals = () => {
                         e.preventDefault();
                     }
                     windows.forEach(item => {
-                        item.style.display = 'none';
+                        item.classList.remove('active');
                     });
         
-                    modal.style.display = 'block';
+                    modal.classList.add('active');
                     document.body.style.overflow = 'hidden';
-                    document.body.style.marginRight = `${scroll}px`;
+                    document.body.style.paddingRight = `${scroll}px`;
+                    if (fixScroll.length > 0) {
+                        fixScroll.forEach(item => {
+                            item.style.left = `-${scroll}px`;
+                        })
+                    }
                 });
             });
 
         close.addEventListener('click', () => {
             windows.forEach(item => {
-                item.style.display = 'none';
+                item.classList.remove('active');
             });
 
-            modal.style.display = 'none';
+            modal.classList.remove('active');
             document.body.style.overflow = '';
-            document.body.style.marginRight = `0px`;
+            document.body.style.paddingRight = `0px`;
+            if (fixScroll.length > 0) {
+                fixScroll.forEach(item => {
+                    item.style.left = `-${scroll}px`;
+                })
+            }
         });
 
         modal.addEventListener('click', (e) => {
             if (e.target == modal) {
                 windows.forEach(item => {
-                    item.style.display = 'none';
+                    item.classList.remove('active');
                 });
 
-                modal.style.display = 'none';
+                modal.classList.remove('active');
                 document.body.style.overflow = '';
-                document.body.style.marginRight = `0px`;
+                document.body.style.paddingRight = `0px`;
+                if (fixScroll.length > 0) {
+                    fixScroll.forEach(item => {
+                        item.style.left = `-${scroll}px`;
+                    })
+                }
             }
         });
     }
@@ -59,6 +75,6 @@ const modals = () => {
         return scrollWidth;
     }
 
-    bindModal('.popup-btn', '.overlay', '.popup-close');
+    bindModal('.popup-btn', '.popup', '.popup-close');
 };
 export default modals;

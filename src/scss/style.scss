@@ -49,7 +49,7 @@ a {
     padding: 50px 0px 50px 0px;
 	width: 100%;
 	min-height:3200px;
-	// background: url('../img/main_bg.jpg');
+	background: url('../img/main_bg.jpg');
     background-position: 50% 30%;
     position: relative;
     z-index: 2;
@@ -74,17 +74,6 @@ a {
     color: $main-color;
     cursor: pointer;
     transition: all 0.3s ease 0s;
-    &-menu {
-        margin: 0;
-        padding: 10px 10px;
-        border: 2px solid $main-color;
-        font-size: 16px;
-        font-weight: 400;
-        @media (max-width: 768px) {
-            font-size: 20px;
-            margin-top: 10px;
-        }
-    }
     @media (min-width: 992px) {
         &:hover {
             box-shadow: 0 0 10px $main-color;

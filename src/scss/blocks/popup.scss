@@ -1,96 +1,162 @@
-.overlay{
+.popup{
 	position: fixed;
-	display: none;
 	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0,0,0,.5);
 	z-index: 3;
-	.popup {
-		position: fixed;
-		z-index: 4;
-		left: 50%;
-		top: 150px;
-		width: 752px;
+	visibility: hidden;
+	background-color: rgba(0,0,0,.5);
+	opacity: 0;
+	transition: all 0.5s ease 0s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	&.active {
+		visibility: visible;
+		overflow-y: scroll;
+		opacity: 1;
+	}
+	&-scroll {
+		height: 70px;
+		flex: 1 1 100%;
+	}
+	&-content {
+		position: relative;
+		z-index: 14;
+		max-width: 752px;
+		flex: 0 0 70%;
 		box-shadow: 0px 0px 30px rgba(0,0,0, .8);
-		transform: translateX(-50%);
-		&-close {
-			position: absolute;
-			right: -25px;
-			top: -40px;
-			cursor: pointer;
-			font-size: 35px;
-			color: $main-color;
-			font-weight: 700;
+		@media (max-width: 576px) {
+			flex: 0 0 95%;
 		}
-		&-title {
+	}
+	&-close {
+		position: absolute;
+		right: -25px;
+		top: -40px;
+		cursor: pointer;
+		font-size: 35px;
+		color: $main-color;
+		font-weight: 700;
+		@media (max-width: 768px) {
+			top: -65px;
+			right: 45%;
+			font-size: 50px;
+			font-weight: 400;
+		}
+	}
+	&-title {
+		display: block;
+		width: 100%;
+		padding: 20px 0px;
+		background-color: $main-color;
+		color: #ffffff;
+		text-transform: uppercase;
+		font-size: 21px;
+		font-weight: 500;
+		text-align: center;
+		@media (max-width: 576px) {
+			font-size: 19px;
+		}
+	}
+	&-form {
+		background-color: $bg-color;
+		background-size: cover;
+		padding: 35px 88px 50px 88px;
+		color: #fff;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		.sendmess {
 			display: block;
-			width: 100%;
-			height: 71px;
-			line-height: 71px;
-			margin: 0;
-			background-color: $main-color;
-			color: #ffffff;
-			text-transform: uppercase;
-			font-size: 21px;
-			font-weight: 500;
+			color: #fff;
+			margin-top: 20px;
+			@media (max-width: 992px) {
+				text-align: center;
+			}
+		}
+
+		&-header {
+			font-weight: 400;
+			line-height: 27px;
+			font-size: 30px;
+			text-align: center;
+			@media (max-width: 768px) {
+				font-size: 25px;
+			}
+		}
+		&__label {
+			display: block;
+			margin-top: 23px;
+			font-size: 20px;
+			font-weight: 300;
 			text-align: center;
 		}
-		&-form {
-			background: url('../img/modal.jpg') center no-repeat;
-			background-size: cover;
-			padding: 35px 88px 50px 88px;
+		&__input {
+			width: 365px;
+			height: 50px;
+			margin-top: 20px;
+			font-size: 18px;
+			background-color: $main-color;
+			border: none;
 			color: #fff;
-			&-header {
-				padding: 0;
-				font-weight: 400;
-				line-height: 27px;
-				font-size: 30px;
-				text-align: center;
+			text-align: center;
+			&::-webkit-input-placeholder {color:#fff;}
+			&::-moz-placeholder {color:#fff;}
+			&:-moz-placeholder {color:#fff;}
+			&:-ms-input-placeholder {color:#fff;}
+			&:focus::-webkit-input-placeholder { color: transparent; }
+			&:focus::-moz-placeholder          { color: transparent; }
+			&:focus:-moz-placeholder           { color: transparent; }
+			&:focus:-ms-input-placeholder      { color: transparent; }
+			&.error {
+				border: 2px solid rgba(214, 59, 12, 0.6);
+				box-shadow: 0 0 8px #d63b0c99;
 			}
-			&__label {
+			@media (max-width: 992px) {
 				display: block;
-				margin-top: 23px;
-				font-size: 20px;
-				font-weight: 300;
-				text-align: center;
+				margin: 0px auto;
+				margin-top: 40px;
 			}
-			&__input {
-				width: 365px;
-				height: 50px;
-				margin-top: 20px;
-				font-size: 18px;
-				background-color: $main-color;
-				border: none;
-				color: #fff;
-				text-align: center;
-				&::-webkit-input-placeholder {color:#fff;}
-				&::-moz-placeholder {color:#fff;}
-				&:-moz-placeholder {color:#fff;}
-				&:-ms-input-placeholder {color:#fff;}
-				&:focus::-webkit-input-placeholder { color: transparent; }
-				&:focus::-moz-placeholder          { color: transparent; }
-				&:focus:-moz-placeholder           { color: transparent; }
-				&:focus:-ms-input-placeholder      { color: transparent; }
-				&.error {
-					border: 1px solid rgba(214, 12, 29, 0.6);
-					box-shadow: 0 0 8px #d60c1d99;
-				}
+			@media (max-width: 576px) {
+				width: 250px;
 			}
-			&__btn {
-				width: 180px;
-				height: 56px;
-				font-size: 15px;
-				line-height: 22px;
-				margin-left: 16px;
-				background-color: transparent;
-				color: $main-color;
-				border: 1px solid $main-color;
-				cursor: pointer;
-				&:hover{
-					box-shadow: 0 0 10px $main-color;
-				}
+			@media (max-width: 576px) {
+				margin-top: 30px;
 			}
+		}
+		&__btn {
+			padding: 15px 25px;
+			font-size: 15px;
+			line-height: 22px;
+			margin-left: 16px;
+			background-color: transparent;
+			color: $main-color;
+			border: 1px solid $main-color;
+			cursor: pointer;
+			&:hover{
+				box-shadow: 0 0 10px $main-color;
+			}
+			@media (max-width: 992px) {
+				display: block;
+				margin: 0px auto;
+				margin-top: 40px;
+			}
+			@media (max-width: 576px) {
+				margin-top: 30px;
+			}
+		}
+		@media (max-width: 1200px) {
+			padding: 35px 40px 50px 40px;
+		}
+		@media (max-width: 992px) {
+			padding: 40px;
+		}
+		@media (max-width: 576px) {
+			padding: 20px;
 		}
 	}
 }

@@ -16,7 +16,7 @@
 
 	<section class="promo">
 		<div class="promo-body">
-			<div class="promo-img img-parallax">
+			<div class="promo-img img-parallax lock">
 				<div class="img-parallax-item">
 					<div class="img-parallax-mountains"></div>
 				</div>
@@ -174,7 +174,7 @@
 					</div>
 					<form id="form" action="#">
 						<input class="req email" name="user_email" type="text" placeholder="Ваша почта">
-						<div class="form-error">Укажите верный адрес электронной почты</div>
+						<div class="form-error">Укажите адрес электронной почты</div>
 						<input class="req tel" name="user_tel" type="text" placeholder="Ваш телефон">
 						<div class="form-error">Укажите номер телефона</div>
 						<button class="form-btn">Отправить</button>
@@ -206,10 +206,11 @@
 		</div>
 	</section>
 
-	<div class="overlay fade" data-modal>
-		<div class="popup">
-		   <div class="popup-close">&times;</div>
-		   <div class="popup-title">Форма обратной связи</div>
+	<div class="popup" data-modal>
+		<div class="popup-scroll"></div>
+		<div class="popup-content">
+			<div class="popup-close">&times;</div>
+			<div class="popup-title">Форма обратной связи</div>
 			<div class="popup-form">	
 				<form action="#" class="main-form">
 					<div class="popup-form-header">
@@ -223,6 +224,7 @@
 				</form>
 			</div>
 		</div>
+		<div class="popup-scroll"></div>
 	</div>
 
 	<script src="js/script.min.js"></script>
