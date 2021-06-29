@@ -22,7 +22,7 @@ const modals = () => {
                     document.body.style.paddingRight = `${scroll}px`;
                     if (fixScroll.length > 0) {
                         fixScroll.forEach(item => {
-                            item.style.left = `-${scroll}px`;
+                            item.style.paddingRight = `${scroll}px`;
                         })
                     }
                 });
@@ -38,7 +38,7 @@ const modals = () => {
             document.body.style.paddingRight = `0px`;
             if (fixScroll.length > 0) {
                 fixScroll.forEach(item => {
-                    item.style.left = `-${scroll}px`;
+                    item.style.paddingRight = `0px`;
                 })
             }
         });
@@ -54,7 +54,7 @@ const modals = () => {
                 document.body.style.paddingRight = `0px`;
                 if (fixScroll.length > 0) {
                     fixScroll.forEach(item => {
-                        item.style.left = `-${scroll}px`;
+                        item.style.paddingRight = `0px`;
                     })
                 }
             }

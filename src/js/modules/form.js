@@ -44,10 +44,11 @@ const form = () => {
 				formRemoveError(formReq);
 				let error = formValidate(formReq);
 				if (error === 0) {
-					let textMessage = document.createElement('div');
-					item.appendChild(textMessage);
-					textMessage.classList.add('sendmess')
-					textMessage.textContent = message.loading;
+					let textMessage = item.parentElement.querySelector('.form-message');
+					if (textMessage) {
+						textMessage.textContent = message.loading;
+						textMessage.classList.add('active');
+					}
 					//=========FormData=====================================
 					const formData = new FormData(item);
 					// formData.append('image', formImage.files[0]);
@@ -67,19 +68,22 @@ const form = () => {
 					.then(res => {
 						console.log(res); //!убрать
 						// statusImg.setAttribute('src', message.ok);
-						textMessage.textContent = message.success;
+						if (textMessage) {
+							textMessage.textContent = message.success;
+							textMessage.classList.add('active');
+						}
 					})
 					.catch(() => {
 						// statusImg.setAttribute('src', message.fail);
-						textMessage.textContent = message.failure;
+						if (textMessage) {
+							textMessage.textContent = message.failure;
+							textMessage.classList.add('active');
+						}
 					})
 					.finally(() => {
 						clearInputs();
 						setTimeout(() => {
-							textMessage.remove();
-							// item.style.display = 'block';
-							// item.classList.remove('fadeOutUp');
-							// item.classList.add('fadeInUp');
+							textMessage.classList.remove('active');
 						}, 5000);
 					});
 				}
@@ -119,10 +123,16 @@ const form = () => {
 		item.classList.add('error');
 	
 		//! Оставить эту часть, если в html добавлены блоки с сообщением об ошибке (.form-error)
-		let formError = item.nextElementSibling;  // если ошибка для каждого input
-		// let formError = item.parentElement.querySelector('.form-error'); // если ошибка для всей формы
-		formError.classList.add('active');
 
+		//* если ошибка для каждого input
+		let formError = item.nextElementSibling;
+		if (formError.classList.contains('form-error')) {
+			formError.classList.add('active');
+		}
+
+		//* если ошибка для всей формы
+		// let formError = item.parentElement.querySelector('.form-error');
+		// formError.classList.add('active');
 	}
 
 	function formRemoveError(selector) {

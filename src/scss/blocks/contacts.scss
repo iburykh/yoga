@@ -100,10 +100,18 @@
 					opacity: 1;
 				}
 			}
-			.sendmess {
+			.form-message {
 				display: block;
+				opacity: 0;
 				color: #fff;
 				margin-top: 20px;
+				transition: all 0.3s ease 0s;
+				&.active {
+					opacity: 1;
+				}
+				@media (max-width: 576px) {
+					font-size: 10px;
+				}
 			}
 		}
 		@media (max-width: 992px) {
