@@ -1,9 +1,10 @@
-const menuBurger = (menu, item, target) => {
+const menuBurger = (menu, item, target, focus = false) => {
 	let menuBody = document.querySelector(menu);
     let menuItem = document.querySelectorAll(item);
     let hamburger = document.querySelector(target);
 
-    hamburger.addEventListener('click', () => {
+
+    hamburger.addEventListener('click', (e) => {
         hamburger.classList.toggle('active');
         menuBody.classList.toggle('active');
     });

@@ -3,31 +3,29 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
-	z-index: 3;
+	height: 100vh;
+	z-index: 100;
 	visibility: hidden;
 	background-color: rgba(0,0,0,.5);
 	opacity: 0;
-	transition: all 0.5s ease 0s;
+	overflow: hidden;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
+	transition: opacity 0.5s ease 0s;
 	&.active {
 		visibility: visible;
-		overflow-y: scroll;
 		opacity: 1;
-	}
-	&-scroll {
-		height: 70px;
-		flex: 1 1 100%;
+		overflow-y: scroll;
+		-webkit-overflow-scrolling: touch;
 	}
 	&-content {
+		margin: 60px auto;
 		position: relative;
-		z-index: 14;
-		max-width: 752px;
-		flex: 0 0 70%;
 		box-shadow: 0px 0px 30px rgba(0,0,0, .8);
+		flex: 0 0 70%;
+		max-width: 752px;
 		@media (max-width: 576px) {
 			flex: 0 0 95%;
 		}
@@ -35,13 +33,22 @@
 	&-close {
 		position: absolute;
 		right: -25px;
-		top: -40px;
+		top: -30px;
 		cursor: pointer;
 		font-size: 35px;
+		width: 19px;
+		height: 19px;
 		color: $main-color;
 		font-weight: 700;
+		background-color: transparent;
+		border: none;
+		line-height: 19px;
+		outline: none;
+		&:focus {
+			text-shadow: $bg-color 2px 0 0px, $bg-color 0 2px 0px, $bg-color -2px 0 0px, $bg-color 0 -2px 0px;
+		}
 		@media (max-width: 768px) {
-			top: -65px;
+			top: -45px;
 			right: 45%;
 			font-size: 50px;
 			font-weight: 400;
@@ -116,8 +123,7 @@
 			&:focus:-moz-placeholder           { color: transparent; }
 			&:focus:-ms-input-placeholder      { color: transparent; }
 			&.error {
-				border: 2px solid rgba(214, 59, 12, 0.6);
-				box-shadow: 0 0 8px #d63b0c99;
+				border: 2px solid #fff;
 			}
 			@media (max-width: 992px) {
 				display: block;
@@ -140,7 +146,7 @@
 			color: $main-color;
 			border: 1px solid $main-color;
 			cursor: pointer;
-			&:hover{
+			&:hover {
 				box-shadow: 0 0 10px $main-color;
 			}
 			@media (max-width: 992px) {
@@ -163,6 +169,7 @@
 			}
 			@media (max-width: 992px) {
 				text-align: center;
+				margin-top: 10px;
 			}
 			@media (max-width: 576px) {
 				font-size: 10px;
@@ -172,7 +179,7 @@
 			padding: 35px 40px 30px 40px;
 		}
 		@media (max-width: 992px) {
-			padding: 35px 20px 15px 20px;
+			padding: 35px 10px 15px 10px;
 		}
 		@media (max-width: 576px) {
 			padding: 25px 10px 10px 10px;

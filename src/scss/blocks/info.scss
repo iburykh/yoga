@@ -15,6 +15,9 @@
 			font-weight: bold;
 			font-size: 24px;
 			cursor: pointer;
+			background-color: transparent;
+			border: none;
+			outline: none;
 			&:after {
 				content: '';
 				display: block;
@@ -23,6 +26,11 @@
 				background-color: $main-color;
 				margin-top: 4px;
 				transition:all 0.3s linear 0s;
+			}
+			&:focus {
+				&:after {
+					width: 60%;
+				}
 			}
 			@media (min-width: 992px) {
 				&:hover {
@@ -122,8 +130,7 @@
 			}
 
 			&-btn {
-				width: 180px;
-				height:45px;
+				padding: 0px 14px;
 				line-height: 43px;
 				margin-top: 30px;
 				border: 1px solid $main-color;
@@ -134,6 +141,7 @@
 				font-weight: 300;
 				cursor: pointer;
 				transition: all 0.2s ease 0s;
+				background-color: transparent;
 				@media (min-width: 992px) {
 					&:hover {
 						box-shadow: 0px 0px 5px $main-color;
@@ -180,6 +188,14 @@
 }
 .hamburger-info {
 	display: none;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	&:focus {
+		span {
+			background-color: #fff;
+		}
+	}
 	@media (max-width: 576px) {
 		display: flex;
 		flex-direction: column;
