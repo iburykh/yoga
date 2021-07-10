@@ -1,17 +1,5 @@
 .counter {
 	@include adaptiv-value("margin-top", 150, 60, 1);
-	&-title {
-		font-size: 32px;
-		color: $main-color;
-		&:after {
-			content: '';
-			display: block;
-			width: 20%;
-			height: 1px;
-			background-color: $main-color;
-			margin-top: 4px;
-		}
-	}
 	&-block {
 		margin-top: 40px;
 		width: 45%;

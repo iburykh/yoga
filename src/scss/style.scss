@@ -2,6 +2,7 @@
 @import 'base/mixins.scss';
 @import 'base/fonts.scss';
 @import 'base/normalize.scss';
+
 @import '../../node_modules/swiper/swiper-bundle.css';
 
 $maxWidth: 1920;
@@ -17,7 +18,10 @@ body {
     font-family: 'RobotoSlab', sans-serif;
     color: #fff;
     font-size: 16px;
-    // touch-action: none;
+    background-color: #171717;
+    &.scroll-lock {
+        overflow: hidden;
+    }
 }
 
 ul, ol, li {
@@ -35,12 +39,6 @@ a {
     @media (max-width: 1200px) {
         max-width: 960px;
     }
-    // @media (max-width: 992px) {
-    //     max-width: 720px;
-    // }
-    // @media (max-width: 768px) {
-    //     max-width: 540px;
-    // }
     @media (max-width: 992px) {
         width: 100%;
         padding: 0 15px;
@@ -54,6 +52,9 @@ a {
     background-position: 50% 30%;
     position: relative;
     padding-bottom: 30px;
+    @media (max-width: 768px) {
+        background: url('../img/main_bg_min.jpg');  
+    }
 }
 
 .fade {

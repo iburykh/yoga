@@ -14,7 +14,7 @@ import smoothScroll from './modules/smoothScroll';
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
-    menuBurger('.menu', '.menu__link', '.hamburger', true);
+    menuBurger('.menu', '.menu-link', '.hamburger', true);
     tabs();
     menuBurger('.info-header', '.info-header-tab', '.hamburger-info');
     timer();

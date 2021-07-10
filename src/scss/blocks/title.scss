@@ -1,6 +1,8 @@
 .title {
 	@include adaptiv-font(32,25,1);
 	color: $main-color;
+	font-weight: 400;
+	text-align: left;
 	&:after {
 		content: '';
 		display: block;

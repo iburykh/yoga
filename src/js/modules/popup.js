@@ -1,6 +1,3 @@
-import {blockFocus} from './focus';
-import {unlockFocus} from './focus';
-
 const modals = () => {
     function bindModal(triggerSelector, modalSelector, closeSelector) {
         const trigger = document.querySelectorAll(triggerSelector),
@@ -10,6 +7,8 @@ const modals = () => {
               fixScroll = document.querySelectorAll('.lock'),
               smallFix = document.querySelectorAll('.small'),
               scroll = calcScroll();
+        let modalOpen = false;
+        let lastFocus;
 
         trigger.forEach(function(item) {
             item.addEventListener('click', function(e) {
@@ -17,13 +16,15 @@ const modals = () => {
                 if (target) {
                     e.preventDefault();
                 }
+                modalOpen = true;
                 windows.forEach(item => {
                     item.classList.remove('active');
                 });
     
                 modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                document.body.classList.add('scroll-lock');
                 document.body.style.paddingRight = `${scroll}px`;
+
                 if (fixScroll.length > 0) {
                     fixScroll.forEach(item => {
                         item.style.paddingRight = `${scroll}px`;
@@ -35,19 +36,26 @@ const modals = () => {
                     })
                 }
 
-                modal.setAttribute('aria-hidden', 'false');
+                lastFocus = document.activeElement;
+                modal.setAttribute('tabindex', '0');
+                // время выполнения ставится в соответствии с transition
+                setTimeout(() => {
+                    modal.focus();
+                }, 500);
 
-                blockFocus(modal);
+                focusRestrict();
             });
         });
 
         function popapClose() {
+            modalOpen = false;
+
             windows.forEach(item => {
                 item.classList.remove('active');
             });
 
             modal.classList.remove('active');
-            document.body.style.overflow = '';
+            document.body.classList.remove('scroll-lock');
             document.body.style.paddingRight = `0px`;
             if (fixScroll.length > 0) {
                 fixScroll.forEach(item => {
@@ -60,9 +68,8 @@ const modals = () => {
                 })
             }
 
-            modal.setAttribute('aria-hidden', 'true');
-
-            unlockFocus()
+            modal.setAttribute('tabindex', '-1');
+            lastFocus.focus();
         }
 
         close.addEventListener('click', () => {
@@ -70,7 +77,7 @@ const modals = () => {
         });
 
         modal.addEventListener('click', (e) => {
-            if (e.target == modal) {
+            if (e.target === modal) {
                 popapClose(); 
             }
         });
@@ -93,6 +100,15 @@ const modals = () => {
             let scrollWidth = div.offsetWidth - div.clientWidth;
             div.remove();
             return scrollWidth;
+        }
+
+        function focusRestrict() {
+            document.addEventListener('focus', function(event) {
+                if (modalOpen && !modal.contains(event.target)) {
+                    event.stopPropagation();
+                    modal.focus();
+                }
+            }, true);
         }
     };
 

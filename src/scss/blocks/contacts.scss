@@ -6,7 +6,7 @@
 	background-color: $bg-color;
 	@include adaptiv-value("margin-top", 150, 60, 1);
 	box-shadow: 0px 0px 30px rgba(0,0,0, .8);
-	padding: 50px 15px;
+	padding: 40px 15px;
 	&-img {
 		flex: 0 0 50%;
 		transform: translateY(-20%);
@@ -21,6 +21,11 @@
 			left: 0;
 		}
 		@media (max-width: 992px) {
+			flex: 0 0 40%;
+			transform: translateY(-10%);
+			top: 0;
+		}
+		@media (max-width: 768px) {
 			display: none;
 		}
 	}
@@ -31,6 +36,10 @@
 			color: $main-color;
 			font-size: 26px;
 			font-weight: 300;
+			text-align: left;
+			@media (max-width: 768px) {
+				text-align: center;
+			}
 			&:after {
 				content: '';
 				display: block;
@@ -38,9 +47,11 @@
 				height: 1px;
 				background-color: $main-color;
 				margin-top: 4px;
-				@media (max-width: 992px) {
+				@media (max-width: 768px) {
 					margin: 5px auto 0px auto;
+					font-size: 20px;
 				}
+
 			}			
 		}
 		form {
@@ -60,10 +71,11 @@
 					box-shadow: 0 0 8px $main-color;
 				}
 				@media (max-width: 992px) {
-					margin: 30px auto 0px auto;
-					width: 50%;
+					margin: 30px 0 0 0;
+					width: 80%;
 				}
 				@media (max-width: 768px) {
+					margin: 30px auto 0px auto;
 					width: 60%;
 				}
 				@media (max-width: 576px) {
@@ -76,6 +88,7 @@
 				box-shadow: 0 0 8px #d63b0c99;
 			}
 			.form-btn {
+				display: block;
 				margin-top: 35px;
 				width: 150px;
 				height: 40px;
@@ -85,6 +98,9 @@
 				cursor: pointer;
 				&:hover{
 					box-shadow: 0 0 10px $main-color;
+				}
+				@media (max-width: 768px) {
+					margin: 35px auto 0px auto;
 				}
 				@media (max-width: 576px) {
 					margin-top: 20px;
@@ -105,9 +121,14 @@
 				opacity: 0;
 				color: #fff;
 				margin-top: 20px;
+				text-align: left;
 				transition: all 0.3s ease 0s;
 				&.active {
 					opacity: 1;
+				}
+				@media (max-width: 768px) {
+					text-align: center;
+					margin-top: 10px;
 				}
 				@media (max-width: 576px) {
 					font-size: 10px;
@@ -115,12 +136,15 @@
 			}
 		}
 		@media (max-width: 992px) {
+			flex: 0 0 60%;
+		}
+		@media (max-width: 768px) {
 			flex: 0 0 100%;
 			text-align: center;
 			padding: 0;
 		}
 	}
 	@media (max-width: 576px) {
-		padding: 35px 15px;
+		padding: 25px 15px;
 	}
 }

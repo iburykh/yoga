@@ -10,14 +10,26 @@
 		height: 50px;
 		display: flex;
 		justify-content: space-around;
+		li {
+			display: block;
+			@media (max-width: 576px) {
+				width: 100%;
+				margin-bottom: 30px;
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
 		&-tab {
+			display: block;
 			color: $main-color;
 			font-weight: bold;
 			font-size: 24px;
+			line-height: 24px;
 			cursor: pointer;
 			background-color: transparent;
+			padding-top: 4px;
 			border: none;
-			outline: none;
 			&:after {
 				content: '';
 				display: block;
@@ -27,11 +39,6 @@
 				margin-top: 4px;
 				transition:all 0.3s linear 0s;
 			}
-			&:focus {
-				&:after {
-					width: 60%;
-				}
-			}
 			@media (min-width: 992px) {
 				&:hover {
 					&:after {
@@ -40,12 +47,10 @@
 				}
 			}
 			@media (max-width: 576px) {
-				margin-bottom: 30px;
 				width: 100%;
+				height: auto;
 				text-align: center;
-				&:last-child {
-					margin-bottom: 0;
-				}
+				font-weight: 400;
 			}
 		}
 		@media (max-width: 576px) {
@@ -54,7 +59,7 @@
 			top: 75px;
 			left: 50%;
 			transform: translateX(-50%);
-			width: 80vw;
+			width: 70%;
 			height: auto;
 			overflow: auto;
 			background-color: $bg-color;
@@ -68,7 +73,7 @@
 			overflow: auto;
 			opacity: 0;
 			visibility: hidden;
-			transition: all 0.6s ease 0s;
+			transition: opacity 0.6s ease 0s;
 			&.active {
 				opacity: 1;
 				visibility: visible;
@@ -130,6 +135,7 @@
 			}
 
 			&-btn {
+				display: block;
 				padding: 0px 14px;
 				line-height: 43px;
 				margin-top: 30px;
@@ -190,12 +196,6 @@
 	display: none;
 	background-color: transparent;
 	border: none;
-	outline: none;
-	&:focus {
-		span {
-			background-color: #fff;
-		}
-	}
 	@media (max-width: 576px) {
 		display: flex;
 		flex-direction: column;

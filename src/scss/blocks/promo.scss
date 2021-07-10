@@ -1,6 +1,9 @@
 .promo {
 	background: url('../img/bg.jpg') center center/cover no-repeat;
 	padding-top: 40px;
+	@media (max-width: 768px) {
+		background: url('../img/bg_min.jpg') center center/cover no-repeat;
+	}
 	&-container {
 		min-height: 650px;
 		display: flex;
